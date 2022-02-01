@@ -1,6 +1,9 @@
 import './App.css';
 import React from 'react';
 import NavBar from './main/navbar';
+import About from './main/about';
+import Projects from './main/projects';
+import Awards from './main/awards';
 
 class App extends React.Component {
   constructor(props) {
@@ -11,6 +14,7 @@ class App extends React.Component {
     return (
       <div className="App">
         <NavBar />
+        <About />
       </div>
     )
   }
