@@ -1,11 +1,14 @@
 import React from 'react';
 import './navbar.scss';
 import pfp from '../resource/pfp.jpg';
+import {
+  Link
+} from 'react-router-dom';
 
 const pages = [
-  { name: 'About' },
-  { name: 'Projects' },
-  { name: 'Awards' },
+  { name: 'About', link: '/' },
+  { name: 'Projects', link: 'projects' },
+  { name: 'Awards', link: 'awards' },
 ];
 
 class NavBar extends React.Component {
@@ -20,13 +23,13 @@ class NavBar extends React.Component {
             <h1 className="title-text">Ryan Wang</h1>
             <div className="pages">
               {pages.map((page) => (
-                <a
+                <Link
                   key={'page-' + page.name}
-                  href='#'
+                  to={page.link}
                   className={'page page-' + page.name}
                 >
                   {page.name}
-                </a>
+                </Link>
               ))}
             </div>
           </div>

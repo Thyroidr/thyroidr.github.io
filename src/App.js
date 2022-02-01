@@ -4,6 +4,11 @@ import NavBar from './main/navbar';
 import About from './main/about';
 import Projects from './main/projects';
 import Awards from './main/awards';
+import {
+  BrowserRouter,
+  Route,
+  Routes
+} from 'react-router-dom';
 
 class App extends React.Component {
   constructor(props) {
@@ -13,8 +18,14 @@ class App extends React.Component {
   render() {
     return (
       <div className="App">
-        <NavBar />
-        <About />
+        <BrowserRouter>
+          <NavBar />
+          <Routes>
+            <Route exact path='/' element={<About/>} />
+            <Route exact path='/projects' element={<Projects/>} />
+            <Route exact path='/awards' element={<Awards/>} />
+          </Routes>
+        </BrowserRouter>
       </div>
     )
   }
