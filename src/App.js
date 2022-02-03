@@ -16,6 +16,7 @@ class App extends React.Component {
   }
 
   render() {
+    document.title = "Ryan Wang";
     return (
       <div className="App">
         <BrowserRouter>
