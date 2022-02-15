@@ -1,2 +1,2 @@
 # My personal website
-Maybe there is something interesting here?
+Maybe there's something interesting here?
