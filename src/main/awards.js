@@ -7,7 +7,7 @@ class Awards extends React.Component {
 
     render() {
         return (
-            <h1>Awards</h1>
+            <h1>Page not made yet</h1>
         )
     }
 }

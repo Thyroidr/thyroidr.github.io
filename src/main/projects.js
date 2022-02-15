@@ -7,7 +7,7 @@ class Projects extends React.Component {
 
     render() {
         return (
-            <h1>Projects</h1>
+            <h1>Page not yet made</h1>
         )
     }
 }

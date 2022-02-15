@@ -1,9 +1,14 @@
 import React from 'react';
 import './navbar.scss';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faBars } from '@fortawesome/free-solid-svg-icons';
 import pfp from '../resource/pfp.jpg';
 import {
   Link
 } from 'react-router-dom';
+import { Popover } from '@headlessui/react';
+import { usePopper } from 'react-popper';
+import { useState } from 'react';
 
 const pages = [
   { name: 'About', link: '/' },
@@ -11,30 +16,59 @@ const pages = [
   { name: 'Awards', link: 'awards' },
 ];
 
-class NavBar extends React.Component {
-  constructor(props) {
-      super(props);
-  }
+function NavBar() {
+  let [referenceElement, setReferenceElement] = useState();
+  let [popperElement, setPopperElement] = useState();
+  let { styles, attributes } = usePopper(referenceElement, popperElement);
 
-  render() {
-      return (
-          <div className="navbar">
-            <img className="title-image" src={pfp} alt="pfp"></img>
-            <h1 className="title-text">Ryan Wang</h1>
-            <div className="pages">
-              {pages.map((page) => (
-                <Link
-                  key={'page-' + page.name}
-                  to={page.link}
-                  className={'page page-' + page.name}
-                >
-                  {page.name}
-                </Link>
-              ))}
-            </div>
-          </div>
-      )
-  }
+  return (
+    <div className="bg-gray-200 py-4 flex h-14 drop-shadow-lg items-center width-screen fixed top-0 left-0 right-0 z-50">
+      <img className="shrink-0 rounded-full ml-8 mr-2 h-10 w-10" src={pfp} alt="Profile picture"></img>
+      <h1 className="ml-2 mr-4 text-xl font-bold text-black">Ryan Wang</h1>
+      <div className="flex md:scale-100 scale-0 ml-10">
+        {pages.map((page) => (
+          <Link
+            key={'page-' + page.name}
+            to={page.link}
+            className="mx-3 text-slate-700 text-lg hover:text-teal-600 transition"
+          >
+            {page.name}
+          </Link>
+        ))}
+      </div>
+      <Popover className="absolute md:hidden scale-100 right-0 px-2 py-2 mx-2 my-2">
+        {({ open }) => (
+          <>
+            <Popover.Button ref={setReferenceElement}>
+              <FontAwesomeIcon 
+                className={`${open ? 'transform rotate-90' : ''}`}
+                icon={faBars}
+              />
+            </Popover.Button>
+
+            <Popover.Panel
+              ref={setPopperElement}
+              style={styles.popper}
+              {...attributes.popper}
+              className='bg-gray-100 py-1 drop-shadow-lg rounded-lg'
+            >
+              <div className='grid'>
+                {pages.map((page) => (
+                  <Popover.Button as={Link}
+                    key={'page-' + page.name}
+                    to={page.link}
+                    className='text-slate-700 px-8 py-1'
+                  >
+                    {page.name}
+                  </Popover.Button>
+                ))}
+              </div>
+            </Popover.Panel>
+          </>
+        )}
+      </Popover>
+    </div>
+  )
 }
 
 export default NavBar;

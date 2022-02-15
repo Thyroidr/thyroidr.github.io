@@ -18,14 +18,18 @@ class App extends React.Component {
   render() {
     document.title = "Ryan Wang";
     return (
-      <div className="App">
+      <div>
         <BrowserRouter>
-          <NavBar />
-          <Routes>
-            <Route exact path='/' element={<About/>} />
-            <Route exact path='/projects' element={<Projects/>} />
-            <Route exact path='/awards' element={<Awards/>} />
-          </Routes>
+          <div className="relative">
+            <NavBar/>
+            <div className='absolute top-14'>
+              <Routes>
+                <Route exact path='/' element={<About/>} />
+                <Route exact path='/projects' element={<Projects/>} />
+                <Route exact path='/awards' element={<Awards/>} />
+              </Routes>
+            </div>
+          </div>
         </BrowserRouter>
       </div>
     )

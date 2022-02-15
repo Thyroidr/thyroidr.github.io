@@ -1,5 +1,4 @@
 import React from 'react';
-import './about.scss';
 import {
     Link
 } from 'react-router-dom';
@@ -35,7 +34,7 @@ function About() {
     let contentCreatorLinks = contentCreators.map(ContentCreatorLink);
 
     return (
-        <div className='lg:mx-56 md:mx-40 mx-10 mt-5 flex-auto flex-col'>
+        <div className='lg:mx-64 md:mx-40 mx-10 mt-5 flex-auto flex-col text-center'>
           <h1 className='text-3xl font-bold'>About me</h1>
           <p className='text-slate-700 text-left py-2'>Hi, welcome to my backyard in the internet. This is mostly my own portfolio, and it may not be up to date. </p>
           <p className='text-slate-700 text-left py-2'>I am an second year undergraduate student at the Australian National University, learning about Computer Science and Mathematics. I have not yet specialised in any area. You can find out a bit more of what I am doing in the <Link to='/projects' className='font-semibold underline decoration-teal-300/30 hover:decoration-teal-400/70 transition'>Projects</Link> and <Link to='/awards' className='font-semibold underline decoration-teal-300/30 hover:decoration-teal-400/70 transition'>Awards</Link> pages.</p>
