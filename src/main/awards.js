@@ -1,15 +1,15 @@
 import React from 'react';
+import {
+    Content,
+    Paragraph,
+    InlineLink,
+    Header,
+} from './utility';
 
-class Awards extends React.Component {
-    constructor(props) {
-        super(props);
-    }
-
-    render() {
-        return (
-            <h1>Page not made yet</h1>
-        )
-    }
+export default function Awards(props) {
+  return (
+    <Content>
+      <Header><h1>Awards</h1></Header>
+    </Content>
+  );
 }
-
-export default Awards;
